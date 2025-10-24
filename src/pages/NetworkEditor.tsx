@@ -121,6 +121,10 @@ export default function NetworkEditor() {
     URL.revokeObjectURL(url);
   };
 
+  const handleExportCode = () => {
+    window.open('https://github.com/', '_blank');
+  };
+
   useEffect(() => {
     const handleGlobalMouseUp = () => {
       setIsDragging(false);
@@ -137,10 +141,16 @@ export default function NetworkEditor() {
           <Icon name="Network" size={24} className="text-[#0EA5E9]" />
           <h1 className="text-xl font-semibold text-[#1A1F2C]">Конструктор сетевой топологии</h1>
         </div>
-        <Button onClick={handleExportJSON} className="bg-[#0EA5E9] hover:bg-[#0284C7]">
-          <Icon name="Download" size={18} className="mr-2" />
-          Экспорт JSON
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={handleExportJSON} className="bg-[#0EA5E9] hover:bg-[#0284C7]">
+            <Icon name="Download" size={18} className="mr-2" />
+            Экспорт JSON
+          </Button>
+          <Button onClick={handleExportCode} variant="outline" className="border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9]/10">
+            <Icon name="Code" size={18} className="mr-2" />
+            Скачать код сайта
+          </Button>
+        </div>
       </header>
 
       <div className="flex-1 flex overflow-hidden">
